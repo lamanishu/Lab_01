@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="069506e2-c779-45bd-89f6-6ce2438be173" name="Changes" comment="Initial commit for Lab_01">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lab01/ObjInputTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lab01/PersonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lab01/SafeInputObj.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab01/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab01/ProductGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lab01/ProductReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lab_01.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Lab_01.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lab01/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab01/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lab01/PersonGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/lab01/PersonGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,24 +28,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "lamanishu"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lamanishu&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lamanishu/Lab_01.git",
-    "accountId": "c581ad9d-9ef3-4d52-849f-cdcbc70ee932"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lamanishu/Lab_01.git&quot;,
+    &quot;accountId&quot;: &quot;c581ad9d-9ef3-4d52-849f-cdcbc70ee932&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="38oExS7FPb5lOO7jpViVrnGP6KK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,6 +55,8 @@
   "keyToString": {
     "Application.ObjInputTest.executor": "Run",
     "Application.PersonGenerator.executor": "Run",
+    "Application.PersonReader.executor": "Run",
+    "Application.ProductGenerator.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.PersonTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -76,7 +75,7 @@
     "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.PersonReader">
+  <component name="RunManager" selected="Application.ProductReader">
     <configuration name="ObjInputTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="lab01.ObjInputTest" />
       <module name="Lab_01" />
@@ -116,7 +115,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab01.ProductGenerator" />
       <module name="Lab_01" />
       <extension name="coverage">
         <pattern>
@@ -124,19 +124,30 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="lab01" />
-      <option name="MAIN_CLASS_NAME" value="lab01.PersonTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab01.ProductReader" />
+      <module name="Lab_01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PersonReader" />
+        <item itemvalue="Application.ProductReader" />
+        <item itemvalue="Application.ProductGenerator" />
         <item itemvalue="Application.PersonGenerator" />
+        <item itemvalue="Application.PersonReader" />
         <item itemvalue="Application.ObjInputTest" />
-        <item itemvalue="JUnit.PersonTest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769459441162</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Initial commit for Lab_01">
+      <option name="closed" value="true" />
+      <created>1769461368705</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769461368705</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
