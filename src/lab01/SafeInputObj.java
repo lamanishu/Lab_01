@@ -6,7 +6,6 @@ public class SafeInputObj {
 
     private Scanner pipe;
 
-    // Default constructor - uses System.in
     public SafeInputObj() {
         pipe = new Scanner(System.in);
     }
