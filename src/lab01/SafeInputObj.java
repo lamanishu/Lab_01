@@ -6,51 +6,78 @@ public class SafeInputObj {
 
     private Scanner pipe;
 
-    // Default constructor
+    // Default constructor - uses System.in
     public SafeInputObj() {
         pipe = new Scanner(System.in);
     }
 
-    // Get a string that is not empty
-    public String getNonZeroLenString(String prompt) {
-        String ret = "";
-        do {
-            System.out.print(prompt + ": ");
-            ret = pipe.nextLine();
-        } while (ret.length() == 0);
-        return ret;
+    public SafeInputObj(Scanner scanner) {
+        pipe = scanner;
     }
 
-    // Get an int in range
-    public int getRangedInt(String prompt, int low, int high) {
-        int value = 0;
-        boolean done = false;
+    /**
+     * Ask user for a string and make sure it's not empty
+     * @param prompt Message to show
+     * @return User's input as a string
+     */
+    public String getString(String prompt) {
+        String input;
         do {
-            System.out.print(prompt + " [" + low + "-" + high + "]: ");
-            if (pipe.hasNextInt()) {
-                value = pipe.nextInt();
-                pipe.nextLine();
-                if (value >= low && value <= high) done = true;
-                else System.out.println("Out of range!");
+            System.out.print(prompt);
+            input = pipe.nextLine().trim();
+        } while (input.isEmpty());
+        return input;
+    }
+
+    /**
+     * Ask user for an integer
+     * @param prompt Message to show
+     * @return The integer entered
+     */
+    public int getInt(String prompt) {
+        int num;
+        while(true) {
+            System.out.print(prompt);
+            if(pipe.hasNextInt()) {
+                num = pipe.nextInt();
+                pipe.nextLine(); // clear the newline
+                return num;
             } else {
+                System.out.println("That's not a number. Try again.");
                 pipe.nextLine();
-                System.out.println("Must enter an integer!");
             }
-        } while (!done);
-        return value;
+        }
     }
 
-    // Get Y/N answer
-    public boolean getYNConfirm(String prompt) {
-        boolean done = false;
-        boolean result = true;
-        do {
-            System.out.print(prompt + " [Y/N]: ");
-            String ans = pipe.nextLine();
-            if (ans.equalsIgnoreCase("Y")) { result = true; done = true; }
-            else if (ans.equalsIgnoreCase("N")) { result = false; done = true; }
-            else System.out.println("You must answer Y or N!");
-        } while (!done);
-        return result;
+    /**
+     * Ask user for an integer within a range
+     * @param prompt Message to show
+     * @param min Minimum value
+     * @param max Maximum value
+     * @return The integer within the range
+     */
+    public int getInt(String prompt, int min, int max) {
+        int value;
+        while(true) {
+            value = getInt(prompt + " (" + min + "-" + max + "): ");
+            if(value >= min && value <= max) return value;
+            System.out.println("Number not in range. Try again.");
+        }
+    }
+
+    /**
+     * Ask user for a yes/no answer
+     * @param prompt Message to show
+     * @return true for yes, false for no
+     */
+    public boolean getYN(String prompt) {
+        String input;
+        while(true) {
+            System.out.print(prompt + " (y/n): ");
+            input = pipe.nextLine().trim().toLowerCase();
+            if(input.equals("y") || input.equals("yes")) return true;
+            if(input.equals("n") || input.equals("no")) return false;
+            System.out.println("Please type y or n.");
+        }
     }
 }

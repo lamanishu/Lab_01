@@ -14,11 +14,11 @@ public class PersonGenerator {
         for (int i = 0; i < 2; i++) {
             System.out.println("\nPerson " + (i + 1) + ":");
 
-            String first = input.getNonZeroLenString("Enter First Name");
-            String last = input.getNonZeroLenString("Enter Last Name");
-            String id = input.getNonZeroLenString("Enter ID (digits only)");
-            String title = input.getNonZeroLenString("Enter Title (Mr, Ms, Dr, etc.)");
-            int yob = input.getRangedInt("Enter Year of Birth", 1940, 2010);
+            String first = input.getString("Enter First Name: ");
+            String last = input.getString("Enter Last Name: ");
+            String id = input.getString("Enter ID (digits only): ");
+            String title = input.getString("Enter Title (Mr, Ms, Dr, etc.): ");
+            int yob = input.getInt("Enter Year of Birth: ", 1940, 2010);
 
             Person p = new Person(first, last, id, title, yob);
             people.add(p);

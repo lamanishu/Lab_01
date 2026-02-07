@@ -1,34 +1,44 @@
 package lab01;
 
-import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
-public class ProductGenerator {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class ProductGenerator
+{
+    public static void main(String[] args)
+    {
+        SafeInputObj safe = new SafeInputObj();
         ArrayList<Product> products = new ArrayList<>();
 
-        System.out.println("Enter 2 products:");
-        for (int i = 0; i < 2; i++) {
-            String name = SafeInput.getNonZeroLenString(scanner, "Enter Product Name");
-            String description = SafeInput.getNonZeroLenString(scanner, "Enter Description");
-            String ID = SafeInput.getRegExString(scanner, "Enter Product ID (digits only)", "\\d+");
-            double cost = SafeInput.getRangedDouble(scanner, "Enter Cost", 0, 10000);
+        boolean more = true;
 
-            Product p = new Product(name, description, ID, cost);
+        while (more)
+        {
+            String name = safe.getString("Enter product name: ");
+            String description = safe.getString("Enter product description: ");
+            String id = safe.getString("Enter product ID: ");
+
+            int costInt = safe.getInt("Enter product cost: ");
+            double cost = costInt; // convert int to double
+
+            Product p = new Product(name, description, id, cost);
             products.add(p);
-            System.out.println("Product added: " + p);
 
-            // Save CSV after each product
-            try (PrintWriter out = new PrintWriter("products.csv")) {
-                for (Product prod : products) {
-                    out.println(prod.toCSV());
-                }
-            } catch (Exception e) {
-                System.out.println("Error writing file: " + e.getMessage());
-            }
+            more = safe.getYN("Add another product?");
         }
-        scanner.close();
+
+        try (FileWriter writer = new FileWriter("products.csv"))
+        {
+            for (Product p : products)
+            {
+                writer.write(p.toCSV() + "\n");
+            }
+            System.out.println("Products saved to products.csv");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Error writing file.");
+        }
     }
 }
